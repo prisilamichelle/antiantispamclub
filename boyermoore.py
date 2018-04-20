@@ -83,4 +83,4 @@ def spamDetect(topic,keyword):
             print('>>>SPAM<<<')
         num+=1
 
-spamDetect(topic.lower(),key.lower())
+spamDetect(topic,key.lower())
