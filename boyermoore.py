@@ -75,14 +75,12 @@ def spamDetect(topic,keyword):
         print(num,end="")
         print(".")
         print(tweet['created_at'])
-        print("[")
-        print(tweet['user']['screen_name'])
-        print("]")
-        idx = boyerMoore(str(tweet['text']), keyword)
+        print("[@"+ tweet['user']['screen_name']+"]")
+        idx = boyerMoore(str(tweet['text']).lower(), keyword)
         tweet['text'] = Twython.html_for_tweet(tweet)
         print(tweet['text'].encode("utf-8"))
         if (idx!=-1):
             print('>>>SPAM<<<')
         num+=1
 
-spamDetect(topic,key)
+spamDetect(topic.lower(),key.lower())

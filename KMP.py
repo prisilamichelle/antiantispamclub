@@ -83,11 +83,11 @@ def spamDetect(topic,keyword):
         print(".")
         print(tweet['created_at'])
         print("[@"+ tweet['user']['screen_name']+"]")
-        idx = KMP(str(tweet['text']), keyword)
+        idx = KMP(str(tweet['text']).lower(), keyword)
         tweet['text'] = Twython.html_for_tweet(tweet)
         print(tweet['text'].encode("utf-8"))
         if (idx!=-1):
             print('>>>SPAM<<<')
         num+=1
 
-spamDetect(topic,key)
+spamDetect(topic,key.lower())
