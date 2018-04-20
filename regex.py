@@ -8,7 +8,7 @@ def regex(text, temp):
     word = text.lower();
     spam = temp.lower();
     reg = r"\b" + re.escape(spam) + r"\b"
-    if re.search(reg, word, re.IGNORECASE):
+    if re.search(spam, word, re.IGNORECASE):
         # print("Spam!")
         return True;
     else:
@@ -37,11 +37,11 @@ def spamDetect(topic,keyword):
         print(".")
         print(tweet['created_at'])
         print("[@"+tweet['user']['screen_name']+"]")
-        idx = regex(str(tweet['text'].lower()), keyword)
+        idx = regex(str(tweet['text']), keyword)
         tweet['text'] = Twython.html_for_tweet(tweet)
         print(tweet['text'].encode("utf-8"))
         if (idx):
             print('>>>SPAM<<<')
         num+=1
 
-spamDetect(topic,key.lower())
+spamDetect(topic,key)
