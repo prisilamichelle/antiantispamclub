@@ -69,17 +69,53 @@
                 echo "Algorithm: Boyer-Moore<br>";
                 
                 $output = (shell_exec("python boyermoore.py $chosentopic $key"));
-                echo "<pre>$output</pre>";
+
+                $file = "data.txt";
+                $array = json_decode(file_get_contents($file),true);
+
+                $num = 0;
+                foreach ($array as $key => $value) {
+                    $num = $num + 1;
+                    echo $num;
+
+                    foreach ($value as $arraykey => $arrayvalue) {
+                        echo "<pre>$arrayvalue</pre>";
+                    }
+                }   
             } else if ($_POST['algorithm']=="KMP") {
                 echo "Algorithm: KMP<br>";
                 
                 $output = (shell_exec("python KMP.py $chosentopic $key"));
-                echo "<pre>$output</pre>";
+
+                $file = "data.txt";
+                $array = json_decode(file_get_contents($file),true);
+
+                $num = 0;
+                foreach ($array as $key => $value) {
+                    $num = $num + 1;
+                    echo $num;
+
+                    foreach ($value as $arraykey => $arrayvalue) {
+                        echo "<pre>$arrayvalue</pre>";
+                    }
+                }
             } else if ($_POST['algorithm']=="Regex") {
                 echo "Algorithm: Regex<br>";
                 
                 $output = (shell_exec("python regex.py $chosentopic $key"));
-                echo "<pre>$output</pre>";
+
+                $file = "data.txt";
+                $array = json_decode(file_get_contents($file),true);
+
+                $num = 0;
+                foreach ($array as $key => $value) {
+                    $num = $num + 1;
+                    echo $num;
+
+                    foreach ($value as $arraykey => $arrayvalue) {
+                        echo "<pre>$arrayvalue</pre>";
+                    }
+                }
             }
         }
        

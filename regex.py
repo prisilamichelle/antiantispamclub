@@ -1,6 +1,7 @@
 import re
-
 import sys
+import json
+
 topic = sys.argv[1]
 key = sys.argv[2]
 
@@ -30,18 +31,23 @@ def spamDetect(topic,keyword):
     result = twitter.search(q=topic, count=30, lang='id')
     all_tweets = result['statuses']
 
-    num = 1
-    for tweet in all_tweets:
-        print("<br>")
-        print(num,end="")
-        print(".")
-        print(tweet['created_at'])
-        print("[@"+tweet['user']['screen_name']+"]")
-        idx = regex(str(tweet['text']), keyword)
-        tweet['text'] = Twython.html_for_tweet(tweet)
-        print(tweet['text'].encode("utf-8"))
+    spamdata = []
+    for tweet in all_tweets: 
+        idx = regex(str(tweet['text']).lower(), keyword)
         if (idx):
-            print('>>>SPAM<<<')
-        num+=1
+            spamdata.append('>>>SPAM<<<')
+        else:
+            spamdata.append(" ")
+
+    data = [ {
+        'time': all_tweets[i]['created_at'],
+        'username': "[@" + all_tweets[i]['user']['screen_name'] + "]",
+        'name': all_tweets[i]['user']['name'],
+        'text': Twython.html_for_tweet(all_tweets[i]),
+        'spam': spamdata[i]
+    } for i in range(len(all_tweets))]
+
+    with open('data.txt', 'w') as f:
+        json.dump(data, f)
 
 spamDetect(topic,key)
