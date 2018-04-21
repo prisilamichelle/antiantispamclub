@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Lato');
+.error {
+    color: #f5ffbc;
+    font-size: 16px;
+
+}
+
+*:focus {
+    outline: none;
+}
+
+label {
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+    animation: move 10s ease infinite;
+    transform: translate3d(0, 0, 0);
+    font-size: 16px;
+    color: #222;
+    height: 100vh;
+    background-size: 200% 100% !important;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.query {
+    width: 90%;
+    max-width: 340px;
+    margin: 10vh auto;
+}
+
+h1 {
+    opacity: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 48px;
+    font-family: 'Do Hyeon', sans-serif;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.7s forwards;
+}
+
+h2 {
+    opacity: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #FFF;
+    font-weight: 500;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 24px;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.7s forwards;
+}
+
+#query-box {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    margin-bottom: -40px;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 1000ms ease-in-out 0.9s forwards;
+}
+
+input[type="text"] {
+    display: block;
+    -webkit-appearance: none;
+    /* margin-bottom: 20px; */
+    padding: 20px;
+    width: 100%;
+    height: 50px;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-bottom: 2px solid #00122e;
+    color: #00122e;
+    transition: 0.2s ease;
+    background: darken(#fff, 3%);
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio] + label {
+    background: url('https://lh3.googleusercontent.com/CSygHWUdWSpIIfoPv3gwc0PctzOTVFGSCcSel4lOtxBBofmpt1QJxOF8MwrXbi0lIxxnKw2Cj6btMFTJZIGxWpkNpHZL41cOa5sgeSgtlsmat7YjkQlrU2XbmhPrxZwElMf9hucSAfEgF0VRLQy58ATRdf1mQULv5VcfnWFyus03KF8Egtg_pwW1_LRnklFEAUUZ_TyzEqFM3cp6G_aDyQpNCKxNvoLWkrcV-tgxqxQGAqC45JAkWWNXSxKgXD8TINX_xO1oml6fh_qVC32SwSQZqkk8Mkhvi2V3DSME0BzcS7wlku5tUK9ijkksro3Wp9kS7Ng4kyPDpkhZAh0kaiKXe4vUXfpZhhXuVjMwaP04HmMFJ7tjKt7bKvIHo0LcKv1zbbQsJ5ZTbI9wRabnUk9dWZtKE0w9BwiNbHuw1JrJBzmSCon9aQZD2DCD72DZEgaUchpdWKi-jShqHvrhaUYUeOUQiImDmo9NBKocQIW76p69uns8tbm1XXohE6tc-PKj8Cx66YtZLm4oUsvppee7Sw92GBFNvMPP9BGZSvxZmpV6TV5rNga1JBJOCMKw76SuYRNob9jCPmjzVMYjmFN8GknmaqOti7kh-QP7IlTUleyq=w25-h24-no') left top no-repeat;
+    display: block;
+    min-height: 25px;
+    padding-left: 35px;
+}
+
+input[type=radio]:checked + label {
+    background: url('https://lh3.googleusercontent.com/QSVgoBuOonsWKUZm6m0NKwekEvkfMOWrPFfevisISZjzeu2uQkxMOY1MUh3QgorRu2qc1kwKX4So7-mGJ-hayMAitq15L63KQNBfsOcm1qmWDU657CNl4lauYhgVz7f59IMrZBg8FWdgh26VDCvGMwUqaK6CBVv13AdKbxDMeDqiZS73EgzF5kBW5smh1nxCY5Gqk8yCmDsYh4KixdZWKGW7BqXLZn7cB2fQV4-o0DePjN69GJLXmddJ6H32CBgiFKE4smBvb1ByWpREmRYpFEUaHuQdbhHiiebI4Kipz35I6OxsVxKC6HOIQC3Xk6JVePhgudB2_-8Nyq2M9rWqIap8kAhmN-FI8iRdSLXhTV4FEeTHqokQ0qEXEZ5N9dRKoXT3al1Alcwrson_OtaALHldR9O7BO6Iq5_BV7-ERpoSYD8wGGhCcWQbjKkz5qHTa8yWRAfZaCLnK8Dzs0DPJtgMjQirittz8cpQQxQM4fhzXvG2x_Dtev4Y1YcZbzsaU6FpamC188SkjEDGOjYnf6CTk0VVbPk1DXFPIEGbOmc7b1unsq7uHOOkuRkGnTQ_d8aLNNPpeDvxP4agpI-ycfdH2ciG4sRXSKcdeAXGIHhNaI9T=w25-h24-no') left top no-repeat;
+}
+
+input[type="submit"] {
+    margin-top: -30px;
+    text-align: center;
+    padding: 10px 15px 11px !important;
+    font-size: 18px !important;
+    background-color: #8ee2d7;
+    font-weight: bold;
+    text-shadow: 1px 1px #8ee2d7;
+    color: #336c74;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #8ee2d7;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+@keyframes arrive {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }
+}

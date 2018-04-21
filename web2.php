@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tubes 3 STIMA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    .error {color: #FF0000;}
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="webstyle.css" />
 </head>
 <body>
 
@@ -26,23 +25,30 @@
         }
     ?>
 
-    <h1>SPAM Detector for Twitter</h1>
     
-    <form name="form" action="" method="post">
-        Topic: <input type="text" name="topic">
-        <span class="error">* <?php echo $topicErr;?></span>
-        <br><br> 
-        Keyword: <input type="text" name="keyword">
-        <span class="error">* <?php echo $keywordErr;?></span>
-        <br><br>
-        Algorithm:
-        <input type="radio" name="algorithm" <?php if (isset($algorithm) && $algorithm=="KMP") echo "checked";?> value="KMP">KMP
-        <input type="radio" name="algorithm" <?php if (isset($algorithm) && $algorithm=="Boyer-Moore") echo "checked";?> value="Boyer-Moore">Boyer-Moore
-        <input type="radio" name="algorithm" <?php if (isset($algorithm) && $algorithm=="Regex") echo "checked";?> value="Regex">Regex  
-        <span class="error">* <?php echo $algorithmErr;?></span>
-        <br><br>
-        <input type="submit">
-    </form>
+    <div class= "query">
+        <div id= "query-box">
+            <h1>SPAM Detector for Twitter</h1>
+            <form name="form" action="" method="post">
+                <input type="text" name="topic" placeholder = "Your chosen topic">
+                <span class="error"> <?php echo $topicErr;?></span>
+                <br><br> 
+                <input type="text" name="keyword" placeholder = "Your spam word">
+                <span class="error"> <?php echo $keywordErr;?></span>
+                <br><br>
+                <h2>Algorithm:</h2>
+                <input type="radio" name="algorithm" <?php if (isset($algorithm) && $algorithm=="KMP") echo "checked";?> value="KMP" id = "KMP"><label class="choice" for="KMP">KMP</label>
+                <br>
+                <input type="radio" name="algorithm" <?php if (isset($algorithm) && $algorithm=="Boyer-Moore") echo "checked";?> value="Boyer-Moore" id = "Boyer-Moore"><label class="choice" for="Boyer-Moore">Boyer-Moore</label>
+                <br>
+                <input type="radio" name="algorithm" <?php if (isset($algorithm) && $algorithm=="Regex") echo "checked";?> value="Regex" id= "regex"><label class="choice" for="regex">Regex</label>
+                <br>
+                <span class="error"> <?php echo $algorithmErr;?></span>
+                <br><br>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
 
     <br><br>
     <br><br>
