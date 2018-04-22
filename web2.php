@@ -63,62 +63,118 @@
         } else {
             $key = $_POST['keyword'];
             $chosentopic = $_POST['topic'];
-            echo "Topic: $chosentopic <br>";
-            echo "Keyword: $key <br>";
-            if ($_POST['algorithm']=="Boyer-Moore") {
-                echo "Algorithm: Boyer-Moore<br>";
-                
-                $output = (shell_exec("python boyermoore.py $chosentopic $key"));
-
-                $file = "data.txt";
-                $array = json_decode(file_get_contents($file),true);
-
-                $num = 0;
-                foreach ($array as $key => $value) {
-                    $num = $num + 1;
-                    echo $num;
-
-                    foreach ($value as $arraykey => $arrayvalue) {
-                        echo "<pre>$arrayvalue</pre>";
-                    }
-                }   
-            } else if ($_POST['algorithm']=="KMP") {
-                echo "Algorithm: KMP<br>";
-                
-                $output = (shell_exec("python KMP.py $chosentopic $key"));
-
-                $file = "data.txt";
-                $array = json_decode(file_get_contents($file),true);
-
-                $num = 0;
-                foreach ($array as $key => $value) {
-                    $num = $num + 1;
-                    echo $num;
-
-                    foreach ($value as $arraykey => $arrayvalue) {
-                        echo "<pre>$arrayvalue</pre>";
-                    }
+            echo "<div><h2>Topic: $chosentopic <br></h2></div>";
+            echo "<div><h2>Keyword: $key <br></h2></div>";
+            if ($_POST['algorithm']=="Boyer-Moore" or $_POST['algorithm']=="KMP" or $_POST['algorithm']=="Regex") {
+                if ($_POST['algorithm']=="Boyer-Moore") {
+                    echo "<div><h2>Algorithm: Boyer-Moore<br></h2></div>";
+                    
+                    $output = (shell_exec("python boyermoore.py $chosentopic $key"));
+    
+                    $file = "data.txt";
+                    $array = json_decode(file_get_contents($file),true);  
+                } else if ($_POST['algorithm']=="KMP") {
+                    echo "<div><h2>Algorithm: KMP<br></h2></div>";
+                    
+                    $output = (shell_exec("python KMP.py $chosentopic $key"));
+    
+                    $file = "data.txt";
+                    $array = json_decode(file_get_contents($file),true);
+                } else if ($_POST['algorithm']=="Regex") {
+                    echo "<div><h2>Algorithm: Regex<br></h2></div>";
+                    
+                    $output = (shell_exec("python regex.py $chosentopic $key"));
+    
+                    $file = "data.txt";
+                    $array = json_decode(file_get_contents($file),true);
                 }
-            } else if ($_POST['algorithm']=="Regex") {
-                echo "Algorithm: Regex<br>";
-                
-                $output = (shell_exec("python regex.py $chosentopic $key"));
-
-                $file = "data.txt";
-                $array = json_decode(file_get_contents($file),true);
-
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                echo "<hr />";
+                echo "<hr />";
+                echo "<br>";
+                echo "<br>";
                 $num = 0;
                 foreach ($array as $key => $value) {
                     $num = $num + 1;
-                    echo $num;
-
+                    // echo $num;
+                    
+                    $i=0;
+                    
                     foreach ($value as $arraykey => $arrayvalue) {
-                        echo "<pre>$arrayvalue</pre>";
+                        switch ($i) {
+                            case 0:
+                            $time = $arrayvalue;
+                            break;
+                            case 1:
+                            $id = $arrayvalue;
+                            break;
+                            case 2:
+                            $image = $arrayvalue;
+                            break;
+                            case 3:
+                            $username = $arrayvalue;
+                            break;
+                            case 4:
+                            $name = $arrayvalue;
+                            break;
+                            case 5:
+                            $text = $arrayvalue;
+                            break;
+                            case 6:
+                            $spam = $arrayvalue;
+                            break;
+                        }
+                        $i++;
+                        // echo "<pre>$arrayvalue</pre>";
                     }
+                    echo "<div class='overflow-hidden'>";
+                    // user data
+                    echo "<div><h2>{$num}. {$name}</h2></div>";
+                    echo "<div id=tweet_box>";
+                    echo "<div class='left'>";
+                    echo "<span class = 'img-thumbnail'><img src='{$image}' height=100px width=100px/></span>";
+                    echo "<div><span class = 'username'><a href='https://twitter.com/{$username}' target='_blank' >@{$username}</a></span></div>";
+                    echo "</span>";
+                    // show tweet content
+                    echo "<div class='tweet-text'>";
+                    
+                    // show name and screen name
+                    
+                    echo "<p>{$name}</p>";
+                    // echo "<span class='color-gray'>@{$username}</span>";
+                    
+                    echo "</div>";
+                    echo "</div>";
+                    
+                    // show tweet text
+                    echo "<div class='right'>";
+                    echo "<span class='tweet'>{$text}</span>";
+                    echo "</div>";
+                    echo "<div id=timebox>";
+                    echo "<div class='time'>{$time}</div>";
+                    echo "</div>";
+                    echo "<div class='logo'>";
+                    $logo ='https://www.am-pm.co.uk/wp-content/uploads/2011/02/twitter-icon.gif';
+                    echo "<img src='{$logo}' width=70px />";
+                    echo "</div>";
+                    if ($spam != " ") {
+                        echo "<div class='bottom'>";
+                        echo "{$spam}";
+                        echo "</div>";
+                        echo "<br>";
+                        echo "<br>";
+                    }
+                    echo "</div>";
+                    echo "<div >";
+                        // echo "<hr />";
+                    echo "</div>";
                 }
             }
         }
-       
+        
     ?>
+        
 </body>
 </html>

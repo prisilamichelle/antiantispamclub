@@ -16,7 +16,7 @@ label {
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+    background: linear-gradient(90deg, #49D49D 10%, #A2C7E5 90%);
     animation: move 10s ease infinite;
     transform: translate3d(0, 0, 0);
     font-size: 16px;
@@ -47,12 +47,22 @@ h1 {
 
 h2 {
     opacity: 0;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-align: center;
     color: #FFF;
     font-weight: 500;
     font-family: 'Do Hyeon', sans-serif;
     font-size: 24px;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.7s forwards;
+}
+
+.p{
+    opacity: 0;
+    color: rgb(161, 161, 161);
+    font-weight: 500;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
     transform: translate3d(0, 500px, 0);
     animation: arrive 500ms ease-in-out 0.7s forwards;
 }
@@ -122,6 +132,133 @@ input[type="submit"] {
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+.img-thumbnail{
+    height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.tweet{
+    display: block;
+    line-height: 18px;
+    border-color: #fff;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    margin: 10px 5px;
+    padding: 10px 10px 10px 10px;
+    max-width: 468px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300px;
+    font-size: 16px;
+    color: #000;
+}
+
+#tweet_box{
+    position: relative;
+    margin: 5% auto;
+    width: 800px;
+    /* height: auto; */
+    height: 250px;
+    background: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.left{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 200px;
+    height: 250px;
+}
+
+.right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 570px;
+    height: 250px;
+    border-left: 4mm groove rgba(55, 146, 221, 0.452);
+    /* background: url('https://goo.gl/YbktSj');
+    background-size: cover;
+    background-position: center; */
+}
+
+.bottom{
+    position:absolute;
+    bottom: -50px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: darkred;
+    color: white;
+    left: 0;
+    box-sizing: border-box;
+    width: 800px;
+    height: 30px;
+}
+
+#timebox{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 570px;
+    height: 30px;
+}
+
+.time{
+    display: inline;
+    line-height: 18px;
+    margin: 10px 5px;
+    padding: 10px 10px 10px 10px;
+    max-width: 468px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300px;
+    font-size: 16px;
+    color: rgb(148, 148, 148);
+}
+
+.username{
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #FFF;
+}
+
+.spam{
+    background-color: darkred;
+    color: #FFF;
+    bottom: -100px;
+    
+}
+
+.logo{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 @keyframes arrive {

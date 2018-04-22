@@ -8,7 +8,6 @@ key = sys.argv[2]
 def regex(text, temp):
     word = text.lower();
     spam = temp.lower();
-    reg = r"\b" + re.escape(spam) + r"\b"
     if re.search(spam, word, re.IGNORECASE):
         # print("Spam!")
         return True;
@@ -41,7 +40,9 @@ def spamDetect(topic,keyword):
 
     data = [ {
         'time': all_tweets[i]['created_at'],
-        'username': "[@" + all_tweets[i]['user']['screen_name'] + "]",
+        'id' : all_tweets[i]['id_str'],
+        'image': all_tweets[i]['user']['profile_image_url_https'],
+        'username': all_tweets[i]['user']['screen_name'],
         'name': all_tweets[i]['user']['name'],
         'text': Twython.html_for_tweet(all_tweets[i]),
         'spam': spamdata[i]

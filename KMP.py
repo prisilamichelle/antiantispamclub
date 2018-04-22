@@ -78,7 +78,7 @@ def spamDetect(topic,keyword):
        
     spamdata = []
     for tweet in all_tweets: 
-        idx = KMP(str(tweet['text']).lower(), keyword)
+        idx = KMP(str(tweet['text']), keyword)
         if (idx!=-1):
             spamdata.append('>>>SPAM<<<')
         else:
@@ -86,7 +86,9 @@ def spamDetect(topic,keyword):
 
     data = [ {
     	'time': all_tweets[i]['created_at'],
-        'username': "[@" + all_tweets[i]['user']['screen_name'] + "]",
+        'id' : all_tweets[i]['id_str'],
+        'image': all_tweets[i]['user']['profile_image_url_https'],
+        'username': all_tweets[i]['user']['screen_name'],
         'name': all_tweets[i]['user']['name'],
         'text': Twython.html_for_tweet(all_tweets[i]),
         'spam': spamdata[i]
@@ -95,4 +97,4 @@ def spamDetect(topic,keyword):
     with open('data.txt', 'w') as f:
     	json.dump(data, f)
     
-spamDetect(topic,key.lower())
+spamDetect(topic,key)
