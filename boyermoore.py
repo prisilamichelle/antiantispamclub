@@ -74,7 +74,7 @@ def spamDetect(topic,keyword):
     
     spamdata = []
     for tweet in all_tweets: 
-        idx = boyerMoore(str(tweet['text']), keyword)
+        idx = boyerMoore(str(tweet['text']).lower(), keyword)
         if (idx!=-1):
             spamdata.append('>>>SPAM<<<')
         else:
@@ -93,4 +93,4 @@ def spamDetect(topic,keyword):
     with open('data.txt', 'w') as f:
         json.dump(data, f)
 
-spamDetect(topic,key
+spamDetect(topic,key.lower())
