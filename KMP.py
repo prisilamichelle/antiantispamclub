@@ -13,15 +13,15 @@ def KMP(text,pattern):
 		prefix = []
 		s = ''
 		for i in range(len(spm)-1):
-			s = s + pattern[i];
-			prefix.append(s);
+			s = s + pattern[i]
+			prefix.append(s)
 
 		#find suffix
 		suffix = []
 		s = ''
 		for i in reversed(range(1,len(spm))):
-			s = pattern[i] + s;
-			suffix.append(s);
+			s = pattern[i] + s
+			suffix.append(s)
 
 		#find the largest prefix which is suffix
 		max_length = 0
