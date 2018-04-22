@@ -82,12 +82,12 @@ def spamDetect(topic,keyword):
         if (idx!=-1):
             spamdata.append('>>>SPAM<<<')
         else:
-        	spamdata.append(" ")
+        	spamdata.append(" ")    
 
     data = [ {
     	'time': all_tweets[i]['created_at'],
         'id' : all_tweets[i]['id_str'],
-        'image': all_tweets[i]['user']['profile_image_url_https'],
+        'image': all_tweets[i]['user']['profile_image_url_https'].replace('_normal',''),
         'username': all_tweets[i]['user']['screen_name'],
         'name': all_tweets[i]['user']['name'],
         'text': Twython.html_for_tweet(all_tweets[i]),
