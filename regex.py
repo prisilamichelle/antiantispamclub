@@ -6,14 +6,14 @@ topic = sys.argv[1]
 key = sys.argv[2]
 
 def regex(text, temp):
-    word = text.lower();
-    spam = temp.lower();
+    word = text.lower()
+    spam = temp.lower()
     if re.search(spam, word, re.IGNORECASE):
         # print("Spam!")
-        return True;
+        return True
     else:
         # print("Safe!")
-        return False;
+        return False
 
 #Twitter API + KMP
 def spamDetect(topic,keyword):
