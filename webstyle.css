@@ -57,6 +57,16 @@ h2 {
     animation: arrive 500ms ease-in-out 0.7s forwards;
 }
 
+p {
+    display: block;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #FFF;
+    font-weight: 500;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 24px;
+}
+
 .p{
     opacity: 0;
     color: rgb(161, 161, 161);

@@ -24,8 +24,12 @@
             }
         }
     ?>
-
-    
+    <?php
+        define("ROOT_URI","http://localhost:8080/");
+    ?>
+    <div>
+        <p style='text-align:right'><a href = '<?php echo ROOT_URI; ?>about.php' target = '_blank'>About Us</a></p>
+    </div>
     <div class= "query">
         <div id= "query-box">
             <h1>SPAM Detector for Twitter</h1>
