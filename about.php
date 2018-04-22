@@ -9,6 +9,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="aboutstyle.css" />
 </head>
 <body>
+<?php
+        define("ROOT_URI","http://localhost:8080/");
+?>
+<p style='text-align:right'><a href = '<?php echo ROOT_URI; ?>web2.php' target = '_blank'>Back to Spam Detector</a></p>
     <div id=about_box>
         <h1>ABOUT US</h1>
         <br>

@@ -25,6 +25,16 @@ body {
     animation: arrive 1000ms ease-in-out 0.9s forwards;
 }
 
+p {
+    display: block;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #FFF;
+    font-weight: 500;
+    font-family: 'Jua', sans-serif;
+    font-size: 24px;
+}
+
 h1 {
     opacity: 0;
     margin-bottom: 40px;
